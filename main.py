@@ -98,4 +98,4 @@ def disconnect():
     
 
 if __name__ == "__main__":
-    socketio.run(app,debug=True,host="127.0.0.1",allow_unsafe_werkzeug=True)
+    socketio.run(app,debug=False,host="0.0.0.0",allow_unsafe_werkzeug=True)
