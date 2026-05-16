@@ -39,7 +39,7 @@
 
 <script type="text/javascript">
   var socketio = io();
-  const messages = document.getElementById("messages");
+msgBox = document.getElementById("messages");
 
   const createMessage = (name, msg) => {
     const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -49,7 +49,7 @@
         const div = document.createElement("div");
         div.className = "system-msg";
         div.textContent = msg;
-        messages.appendChild(div);
+        msgBox.appendChild(div);
     } else {
         const div = document.createElement("div");
         div.className = "text";
@@ -65,9 +65,9 @@
        </div>`
     : `<span class="msg-body">${escapeHtml(msg)}</span>`;
         div.innerHTML = `<span class="sender">${escapeHtml(name)}</span>${bodyHtml}<span class="muted">${time}</span>`;
-        messages.appendChild(div);
+        msgBox.appendChild(div);
     }
-    messages.scrollTop = messages.scrollHeight;
+    msgBox.scrollTop = msgBox.scrollHeight;
 };
 
   function escapeHtml(str) {
