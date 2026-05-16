@@ -1,23 +1,39 @@
-{%extends 'base.html' %}
+{% extends 'base.html' %}
 {% block content %}
-<form method="POST" class="buttons">
-    <h1>Chatting Room</h1>
-    <h3>
-        Enter The Chat Room
-    </h3>
+<div class="home-wrapper">
+  <form method="POST" class="buttons">
+
+    <div class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <h1>Chat Rooms</h1>
+      <h3>Connect with anyone, instantly</h3>
+    </div>
+
     <div class="name">
-        <label>Name:</label>
-        <input type="text" placeholder="Pick a name!" name="name" value="{{name}}"/>
+      <label class="field-label">Your name</label>
+      <input type="text" placeholder="Pick a name..." name="name" value="{{ name }}" autocomplete="off" />
     </div>
+
+    <div class="divider">or join an existing room</div>
+
+    <label class="field-label">Room code</label>
     <div class="join">
-        <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
-        <button type="submit" name="join" class="join-btn">Join a Room</button>
+      <input type="text" placeholder="XXXX" name="code" value="{{ code }}" autocomplete="off" maxlength="4" />
+      <button type="submit" name="join" class="join-btn">Join Room</button>
     </div>
-    <button type="submit" name="create" value="true" class="create-btn">Create a Room</button>
+
+    <button type="submit" name="create" value="true" class="create-btn">+ Create New Room</button>
+
     {% if error %}
     <ul>
-        <li>{{error}}</li>
+      <li>{{ error }}</li>
     </ul>
     {% endif %}
-</form>
+
+  </form>
+</div>
 {% endblock %}
